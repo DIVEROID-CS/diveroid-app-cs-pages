@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Open Source License — DIVEROID</title>
+    <link rel="stylesheet" href="../assets/css/base.css" />
+  </head>
+  <body>
+    <!-- App Bar -->
+    <div class="page-header">
+      <button class="btn-close" onclick="closePage()">✕</button>
+      <h1>Open Source License</h1>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="section">
+        <p>This application includes the following open source software:</p>
+      </div>
+
+      <!-- ── License: GPUImage3 ── -->
+      <div class="license-item">
+        <p class="license-name">GPUImage3</p>
+        <p>
+          <a href="https://github.com/BradLarson/GPUImage3" target="_blank"
+            >https://github.com/BradLarson/GPUImage3</a
+          >
+        </p>
+        <p>
+          Copyright (c) 2018, Brad Larson and Janie Clayton.<br />All rights
+          reserved.
+        </p>
+        <p>
+          Redistribution and use of the source and binary forms, with or without
+          modification, are permitted, provided that the following conditions
+          are met:
+        </p>
+        <ul class="list-box">
+          <li>
+            Redistributions of source code must retain the above copyright
+            notice, this list of conditions, and the following disclaimer
+          </li>
+          <li>
+            Redistributions in binary form must reproduce the above copyright
+            notice, this list of conditions, and the following disclaimer in the
+            documentation and/or other materials provided with the distribution.
+          </li>
+          <li>
+            Neither the name of the GPUImage framework nor the names of its
+            contributors may be used to endorse or promote products derived from
+            this software without specific prior written permission.
+          </li>
+        </ul>
+        <p>
+          THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+          "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+          LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+          A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+          HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+          SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+          LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+          DATA, OR PROFITS; OR BUSINESS INTERRUPTION), HOWEVER CAUSED AND ON ANY
+          THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+          (INCLUDING NEGLIGENCE OR OTHERWISE), ARISING IN ANY WAY OUT OF THE USE
+          OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        </p>
+      </div>
+      <div class="section-divider"></div>
+
+      <!-- Additional licenses will be added by the dev team (Chung) -->
+      <p
+        style="
+          color: var(--gray-07);
+          font-size: 13px;
+          text-align: center;
+          padding-bottom: 40px;
+        "
+      >
+        Additional open source licenses will be listed here.
+      </p>
+    </div>
+    <!-- /content-wrapper -->
+
+    <script>
+      function closePage() {
+        const msg = JSON.stringify({ type: "close" });
+        window.ReactNativeWebView
+          ? window.ReactNativeWebView.postMessage(msg)
+          : history.back();
+      }
+    </script>
+  </body>
+</html>

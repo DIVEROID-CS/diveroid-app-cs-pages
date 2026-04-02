@@ -1,0 +1,594 @@
+/* DIVEROID App 3.0 — CS Pages Base Styles
+   Design tokens from Figma: 02-2_Up-To-Date-UI-DESIGN_ENG
+   Font: Spoqa Han Sans Neo
+   Updated: 2026-04 */
+
+@import url("https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/css/SpoqaHanSansNeo.css");
+
+/* ── Design Tokens (Figma exact) ── */
+:root {
+  /* Colors */
+  --black: #000000;
+  --white: #ffffff;
+  --gray-01: #f8f9fa;
+  --gray-03: #e9ecef;
+  --gray-04: #dee2e6;
+  --gray-07: #868e96;
+  --gray-08: #495057;
+  --blue: #198dfa;
+  --error: #ff3434;
+
+  /* Typography */
+  --font:
+    "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Noto Sans KR",
+    sans-serif;
+
+  /* Spacing */
+  --page-padding: 20px;
+  --section-gap: 32px;
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent horizontal scroll from full-width dividers */
+  overflow-x: hidden;
+}
+
+/* ── App Bar (Nav only — status bar is handled by native app) ── */
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  /* No border — matches Figma */
+  display: grid;
+  grid-template-columns: 49px 1fr 49px;
+  align-items: center;
+  height: 49px;
+  padding: 0 20px;
+}
+
+.page-header h1 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.32px;
+  color: var(--black);
+  text-align: center;
+  grid-column: 2;
+}
+
+.btn-close {
+  grid-column: 1;
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  color: var(--black);
+  font-size: 18px;
+  font-weight: 300;
+}
+
+/* ── Tab Bar (Terms of Use only) ── */
+.tab-bar {
+  display: flex;
+  position: sticky;
+  top: 49px;
+  z-index: 99;
+  background: var(--white);
+  height: 28px;
+  border-bottom: 1px solid var(--gray-03);
+}
+
+.tab-btn {
+  flex: 1;
+  height: 100%;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.13px;
+  color: var(--gray-07);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  padding: 2px 4px 0;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab-btn.active {
+  color: var(--black);
+  border-bottom-color: var(--black);
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* ── Language Switcher (dev/test helper — not in Figma design) ── */
+.lang-switcher {
+  display: flex;
+  gap: 8px;
+  padding: 8px 20px;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-03);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.lang-switcher::-webkit-scrollbar {
+  display: none;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid var(--gray-04);
+  color: var(--gray-08);
+  padding: 3px 14px;
+  border-radius: 14px;
+  font-family: var(--font);
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+.lang-btn.active {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+  font-weight: 700;
+}
+
+/* ── Content Wrapper ── */
+.content-wrapper {
+  padding: 26px var(--page-padding) 60px;
+}
+
+/* ── Section ── */
+.section {
+  margin-bottom: var(--section-gap);
+}
+
+/* Section heading — Headline 01-Bold */
+.section > h2,
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.36px;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+/* Body text — Body 01-Regular */
+.section p,
+.section li {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+.section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Body 01-Bold */
+.section p strong,
+.section li strong,
+.body-bold {
+  font-weight: 700;
+}
+
+/* ── Section Divider (8px full-bleed gray bar — Figma exact) ── */
+.section-divider {
+  height: 8px;
+  background: var(--gray-01);
+  margin: 0 calc(-1 * var(--page-padding));
+  margin-bottom: var(--section-gap);
+}
+
+/* ── Sub-section heading (Body 01-Bold with vertical bar) ── */
+.sub-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.sub-heading::before {
+  content: "";
+  display: block;
+  width: 3px;
+  min-height: 20px;
+  background: var(--black);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.sub-heading span {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--black);
+}
+
+/* ── List Box (gray rounded container — #F8F9FA) ── */
+.list-box {
+  background: var(--gray-01);
+  border-radius: 7px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+}
+.list-box li {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.13px;
+  color: var(--black);
+  margin-bottom: 0;
+  list-style: disc;
+  margin-left: 19.5px;
+}
+
+/* ── Note box (blue text footnote — * style) ── */
+.note-line {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: -0.12px;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.note-line .note-star {
+  flex-shrink: 0;
+  color: var(--blue);
+}
+.note-line .note-text {
+  color: var(--gray-08);
+}
+
+/* ── Table ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+}
+/* Header row */
+.tbl-header td,
+.tbl-header th,
+thead td,
+thead th {
+  background: var(--gray-01);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.13px;
+  color: var(--black);
+  text-align: center;
+  padding: 10px 16px;
+  border-top: 1px solid var(--gray-04);
+  border-bottom: 1px solid var(--gray-04);
+}
+/* Data rows */
+tbody td,
+tr:not(.tbl-header) td {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.13px;
+  color: var(--black);
+  padding: 18px 16px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--gray-04);
+}
+/* First column in warranty table */
+.tbl-col-left {
+  width: 50%;
+}
+.tbl-col-right {
+  width: 50%;
+}
+
+/* ── IMPORTANT highlight ── */
+.text-error {
+  color: var(--error);
+  font-weight: 700;
+}
+
+/* ── Link ── */
+a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+
+/* ── Body 02 sizes (small text) ── */
+.body-02-bold {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.13px;
+}
+.body-02-regular {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.13px;
+}
+.caption {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: -0.12px;
+}
+.caption-s {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+/* ── Last Updated ── */
+.last-updated {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gray-07);
+  margin-bottom: 20px;
+  line-height: 14px;
+}
+
+/* ── Contact CTA ── */
+.contact-cta {
+  text-align: center;
+  margin-top: var(--section-gap);
+  padding: 20px 0 40px;
+}
+.contact-cta p {
+  font-size: 15px;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+.btn-contact {
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 24px;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-contact:active {
+  opacity: 0.7;
+}
+
+/* ── FAQ Accordion ── */
+.faq-category {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.13px;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 0 12px;
+}
+.faq-category::before {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 18px;
+  background: var(--black);
+  flex-shrink: 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--gray-03);
+}
+.faq-item:first-of-type {
+  border-top: 1px solid var(--gray-03);
+}
+
+.faq-question {
+  padding: 16px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--black);
+  gap: 12px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.faq-question::after {
+  content: "+";
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--gray-07);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.faq-item.open .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 0 16px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--gray-08);
+}
+.faq-item.open .faq-answer {
+  display: block;
+}
+.faq-answer ul,
+.faq-answer ol {
+  padding-left: 18px;
+  margin: 8px 0;
+}
+.faq-answer li {
+  margin-bottom: 4px;
+}
+
+/* ── Tutorial Steps ── */
+.chapter-header {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 28px 0 16px;
+}
+.chapter-header::before {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 18px;
+  background: var(--black);
+  flex-shrink: 0;
+}
+
+.tutorial-step {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+.step-number {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.step-content {
+  flex: 1;
+}
+.step-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.step-desc {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--gray-08);
+}
+.step-image {
+  width: 100%;
+  background: var(--gray-01);
+  border-radius: 7px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--gray-07);
+}
+
+/* ── Open Source License ── */
+.license-item {
+  margin-bottom: 32px;
+}
+.license-name {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.license-text {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--black);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ── Utility ── */
+ul.section-list,
+ol.section-list {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+ul.section-list li,
+ol.section-list li {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--black);
+  margin-bottom: 0;
+}
