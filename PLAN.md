@@ -26,13 +26,19 @@
 ## 작업 단계
 
 - [x] 0단계: 프로젝트 폴더 생성
-- [ ] 1단계: HTML 베이스 템플릿 제작 (공통 스타일, JS 브리지, 다국어 구조)
-- [ ] 2단계: Privacy Policy 초안 (KO/EN)
-- [ ] 3단계: Terms of Use - Purchase & Refund Policy 초안 (KO/EN)
-- [ ] 4단계: Terms of Use - Product Warranty 초안 (KO/EN)
-- [ ] 5단계: FAQ 구조 + 샘플 Q&A (KO/EN) → 루피 검토 후 완성
+- [x] 1단계: HTML 베이스 템플릿 제작 (공통 스타일, JS 브리지, 다국어 구조) — `assets/css/base.css`
+- [x] 2단계: Privacy Policy 초안 (KO/EN) — `html/privacy-policy.html`
+- [x] 3단계: Terms of Use - Purchase & Refund Policy 초안 (KO/EN) — `html/terms-of-use.html`
+- [x] 4단계: Terms of Use - Product Warranty 초안 (KO/EN) — `html/terms-of-use.html` (탭 구조)
+- [ ] 5단계: FAQ 구조 + 샘플 Q&A (KO/EN) → 루피 검토 후 완성 (구조만 완성, 콘텐츠 미완)
 - [ ] 6단계: Open Source License — Chung에게 라이브러리 목록 요청 필요
 - [ ] 7단계: Tutorial — 앱 스크린샷 확보 후 제작
+
+## GitHub
+
+- Repo: https://github.com/DIVEROID-CS/diveroid-app-cs-pages (Public)
+- 업로드 완료: 2026-04-02
+- Vu Pham 컨펌 대기 중
 
 ## 루피가 해야 할 일 목록
 

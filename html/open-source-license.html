@@ -84,13 +84,6 @@
     </div>
     <!-- /content-wrapper -->
 
-    <script>
-      function closePage() {
-        const msg = JSON.stringify({ type: "close" });
-        window.ReactNativeWebView
-          ? window.ReactNativeWebView.postMessage(msg)
-          : history.back();
-      }
-    </script>
+    <script src="../assets/js/bridge.js"></script>
   </body>
 </html>
